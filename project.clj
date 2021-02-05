@@ -25,7 +25,12 @@
                                      :exclusions [javax.servlet/servlet-api]]
                                     [ring/ring-servlet "1.3.0"
                                      :exclusions [javax.servlet/servlet-api]]
-                                    [codox "0.8.10"]]}}
+                                    [codox "0.8.10"]]}
+            :jetty-stage {:dependencies [[org.eclipse.jetty/jetty-server #=(eval (System/getenv "JETTY_VERSION"))]
+                 [org.eclipse.jetty.websocket/websocket-server #=(eval (System/getenv "JETTY_VERSION"))]
+                 [org.eclipse.jetty.websocket/websocket-servlet #=(eval (System/getenv "JETTY_VERSION"))]
+                 [org.eclipse.jetty.websocket/websocket-client #=(eval (System/getenv "JETTY_VERSION"))]
+                 [org.eclipse.jetty/jetty-client "9.4.36.v20210114"]]}}
   :aliases {"all" ["with-profile" "dev:dev,1.5:dev,1.6:dev,1.7:dev,master"]}
   :codox {:src-dir-uri "https://github.com/mpenet/jet/blob/master/"
           :src-linenum-anchor-prefix "L"
